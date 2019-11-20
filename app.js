@@ -15,27 +15,25 @@ var database = firebase.database()
 new Vue({
     el: "#app",
     data: {
-        musicas: []
-    },
-    created: function () {
-       
-        this.carregaDadosIniciais()
+        musicas: [],
+        nomeBanda:''
     },
     methods: {
         carregaDadosIniciais() {
             vm = this;
             this.musicas =[]
-            var result = firebase.database().ref().child("MARCELO");
+            var result = firebase.database().ref().child(vm.nomeBanda.toUpperCase());
             result.on('value', function (snapshot) {
-                Object.entries(snapshot.val().repertório).forEach(data => {
-                    data.forEach(data => {
-                        let r = typeof data
-                        if (r !== 'string') {
-                            vm.musicas.push(data)
-                        }
-
+                if(snapshot.val()){
+                    Object.entries(snapshot.val().repertório).forEach(data => {
+                        data.forEach(data => {
+                            let r = typeof data
+                            if (r !== 'string') {
+                                vm.musicas.push(data)
+                            }
+                        })
                     })
-                })
+                }
             });
         },
         filtrar(e) {
@@ -43,7 +41,7 @@ new Vue({
                 this.carregaDadosIniciais()
             } else {
                 const query = firebase.database().
-                    ref("MARCELO").
+                    ref(this.nomeBanda.toUpperCase()).
                     child('repertório').
                     orderByChild('Musica').
                     equalTo(e.target.value.toUpperCase());
@@ -56,6 +54,11 @@ new Vue({
                     })
                 })
             }
+        }
+    },
+    watch:{
+        nomeBanda(){
+            this.carregaDadosIniciais()
         }
     }
 
