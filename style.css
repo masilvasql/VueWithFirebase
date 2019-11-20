@@ -1,0 +1,71 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divPrincipal{
+    margin-bottom: 20px;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: aqua;
+    width: 95%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.search{
+    width: 65%;
+    margin-top: 15px;
+}
+
+.card{
+    margin-top: 20px;
+    box-shadow: 2px 2px 2px 2px #aaa;
+    width: 80%;
+    height: 130px;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.card:hover{
+    margin-top: 20px;
+    box-shadow: 2px 2px 2px 2px aqua;
+    width: 80%;
+    height: 130px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.socialBar{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #74b9ff;
+    border-radius: 5px;
+}
+
+.socialBar a { 
+    color: inherit; 
+} 
+
+.youtube i{
+    color: red;
+}
+
+.google i {
+    color : #ecf0f1;
+}
+
+.soundCloud i {
+    color: #d35400;
+}

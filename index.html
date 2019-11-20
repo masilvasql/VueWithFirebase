@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Repertório VueJs</title>
+</head>
+
+<body>
+    <div id="app" class="divPrincipal">
+        <div class="container">
+
+            <div class="titulo">
+                <h1>Repertório</h1>
+            </div>
+
+            <div class="search">
+                <input type="text" placeholder="Pesquise Aqui" class="form-control" @input="filtrar">
+            </div>
+            <div class="card" v-for="musica in musicas">
+                <div>
+                    <label>Musica:</label>
+                    <label>{{musica.Musica}}</label>
+                </div>
+
+                <div>
+                    <label>Autor: </label>
+                    <label>{{ musica.Autor }}</label>
+                </div>
+
+                <div>
+                    <label>Tom: </label>
+                    <label>{{ musica.Tom }}</label>
+                </div>
+
+                <div class="socialBar">
+                    <div>
+                        <a target="_blank" rel="noopener noreferrer" class="youtube"
+                            :href="'https://www.youtube.com/results?search_query=' + musica.Musica + ' ' + musica.Autor ">
+                            <i class="fa fa-youtube fa-2x"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" rel="noopener noreferrer" class="google"
+                            :href="'https://www.google.com.br/search?q=cifra de ' + musica.Musica + ' ' + musica.Autor">
+                            <i class="fa fa-google fa-2x"></i>
+                        </a>
+
+                    </div>
+                    <div>
+                        <a target="_blank" rel="noopener noreferrer" class="soundCloud"
+                            :href="'https://soundcloud.com/search?q=' + musica.Musica + ' ' +musica.Autor">
+                            <i class="fa fa-soundcloud fa-2x"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+
+</html>
